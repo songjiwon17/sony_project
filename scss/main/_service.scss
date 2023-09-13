@@ -1,0 +1,70 @@
+@import "../common/var";
+@import "../common/mixin";
+
+.service{
+    width: 100%;
+    h2{margin: 0 auto 30px; font-size: 24px; text-transform: uppercase;}
+    .box{
+        a{
+            display: block;
+            .service_btn{
+                display: flex; align-items: center; justify-content: space-between;
+                @include serviceBtn(); padding: 0 20px;
+                transition: 0.3s;
+
+                .next{
+                    display: block;
+                    width: 30px; height: 15px; background-image: url(../images/next_icon_sprite.png);
+                    transition: 0.3s;
+                    }
+                    
+                &:hover{
+                    border: 1px solid $white; background-color: $mainColor; color: $white;
+                    .next{background-position: 30px 0;}
+                }
+            }  
+        }
+    }
+    :nth-child(n+3) a{margin-top: 20px;}
+}
+@media screen and (max-width:$minWidth) {
+    .service{
+        .inner{
+            width: 690px;
+            .wrap{
+                justify-content: center;
+                .box{margin-bottom: 20px;}
+                :nth-child(n+3) a{margin-top: 0;}
+            }
+        }
+    }
+}
+@media screen and (max-width:768px) {
+    .service{
+        .inner{
+            width: 100%;
+            h2{text-align: center;}
+            .wrap{
+                .box{
+                    .service_btn{
+                        @include serviceBtn(420px);
+                    }
+                }
+            }
+        }  
+    }
+}
+@media screen and (max-width:480px) {
+    .service{
+        .inner{
+            h2{font-size: 20px;}
+            .wrap{
+                .box{
+                    .service_btn{
+                        @include serviceBtn(350px); font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

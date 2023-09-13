@@ -1,0 +1,183 @@
+@import "../common/var";
+@import "../common/mixin";
+
+.news{
+    position: relative;
+    width: 100%; height: 900px; background-color: $mainColor; overflow: hidden;
+    .inner{
+        position: relative;
+        width: 100%;
+        h2{@include titleH2(#fff);}
+        .news_btn{
+            display: flex; margin: 30px auto 60px;
+            max-width: 385px; height: 50px;
+            li{
+                margin-right: 15px;
+                    .all_btn{
+                        display: block;
+                        @include newsBtnAll();
+                        @include newsBtnTitle($white);
+                        transition: 0.3s;
+                    }
+                    .n_btn{
+                        @include newsBtn();
+                        @include newsBtnTitle();
+                        transition: 0.3s;
+                    }
+                    &.on{
+                        .all_btn{
+                            @include newsBtnAll($mainColor,$white);
+                            @include newsBtnTitle($mainColor);
+                        }
+                        .n_btn{
+                            @include newsBtn($mainColor, $white);
+                            @include newsBtnTitle($mainColor);
+                        }
+                    }
+            }
+        }
+        .swiper-slide{
+            width: 100%;
+            .all_news{
+                a{
+                    position: relative;
+                    width: 100%;
+                    img{display: block; width: 100%;}
+                    .wrap{
+                        display: flex; flex-direction: column; justify-content: flex-end; 
+                        position: absolute; left: 0; bottom: 0; 
+                        width: 100%; height: 100%; padding: 20px; border-radius: 10px;
+                        backface-visibility: hidden;
+                        .news__title{@include newsText();}
+                        .news_con_title_01{@include newsText(22px, 500);}
+                        .news_date{@include bodyText();}                  
+                    }
+                    .info{
+                        display: flex; flex-direction: column; justify-content: space-evenly;
+                        position: absolute; left: 0; top: 0;
+                        width: 100%; height: 100%; padding: 20px; border-radius: 10px;
+                        background-color: #333;
+
+                        transform: rotateY(180deg); backface-visibility: hidden;
+
+                        .news_con_title_02{@include newsText(22px, 500);}
+                        .news_con_txt{@include bodyText(); line-height:32px;}
+                        .more_btn{
+                            @include MoreBtn();
+                            @include bodyText(16px,500);
+                            transition: 0.3s;
+                            &:hover{
+                                @include MoreBtn($mainColor, $white);
+                                @include bodyText(16px,500,$mainColor);
+                            }
+                        }
+                    }
+                }
+            }
+            .empty{
+                img{display: block; width: 100%;}
+            }
+            &:hover .all_news{
+                transform: rotateY(180deg);
+                transition: 0.7s;
+                .info{backface-visibility: visible;}
+            }
+        }
+        .swiper_button{
+            position: absolute; right: 10%; top:20%;
+            width: 140px; height: 50px;
+
+            .swiper-button-next{
+                width: 50px; height: 100%; 
+                background-image: url(../images/next_active.png); background-repeat: no-repeat;
+            }
+            .swiper-button-prev{
+                width: 50px; height: 100%;
+                background-image: url(../images/prev_active.png); background-repeat: no-repeat;
+            }
+            .swiper-button-next::after ,.swiper-button-prev::after{ display: none; }
+        }
+    }
+/*     .sony_text{
+        position: absolute; left: 0; top: 50%;
+        display: flex; white-space: nowrap; transition: 0.3s;
+        animation: sony_flow_text 30s linear infinite;
+        .sony_flow{
+            margin-right: 50px;
+            font-weight: 500; font-size: 200px; color: rgba(255,255,255,0.2);
+        }
+    } */
+    .swiper-horizontal>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal{
+        width: 25%; height: 2px;
+        position: absolute; left: 50%; bottom: 8%; transform: translate(-50%,-50%);
+        background-color: rgba(255,255,255,0.5);
+        display: none;
+    }
+    .swiper-scrollbar-drag{
+        background-color: $white;
+        display: none;
+    }
+}
+/* @keyframes sony_flow_text{
+    from {transform: translateX(0);}
+    to { transform: translateX(-50%);}
+} */
+@media screen and (max-width:$minWidth){
+    .news{
+        height: 700px;
+        .inner{
+            .swiper-slide{
+                .all_news{
+                    a{
+                        .wrap{
+                            .news__title{display: none;}
+                            .news_con_title_01{font-size: 20px;}
+                            .news_date{font-size: 14px;}
+                       }
+                    }
+                }
+            }
+        }   
+    }
+}
+
+@media screen and (max-width:1200px){
+    .news{
+        height: 650px;
+        .inner{
+            h2{@include mText(36px,700); margin-bottom: 20px;}
+            .swiper-slide{
+                .all_news{
+                    a{
+                        .wrap{
+                            .news_con_title_01{font-size: 16px;}
+                            .news_date{font-size: 12px;}
+                       }
+                    }
+                }
+            }
+        }
+        .swiper_button{display: none;}
+        .swiper-horizontal>.swiper-scrollbar, .swiper-scrollbar.swiper-scrollbar-horizontal{display: block;}
+        .swiper-scrollbar-drag{display: block;}
+    }
+}
+
+@media screen and (max-width:960px) {
+    .news{
+        height: 620px;
+        .inner{
+            h2{font-size: 30px;}
+            .news_btn{margin: 0 auto 30px;}
+        }
+    }
+}
+@media screen and (max-width:480px) {
+    .news{
+        height: 550px;
+        .inner{
+            h2{font-size: 24px; margin-bottom: 10px;}
+            .news_btn{margin: 0 0 20px 0;}
+        }
+    }
+}

@@ -1,0 +1,47 @@
+@import "../common/var";
+@import "../common/mixin";
+    
+.add{
+    background: url(../images/main/product_add.png) no-repeat;
+    background-position: center; background-size: cover;
+    background-attachment: fixed;
+    .box{
+        position: relative; z-index: 1;
+        width: 100%; height: 900px; display: flex; justify-content: center; align-items: center;
+        .add_text_f{@include titleH3(); margin-bottom: 20px;}
+        .add_text{
+            h3{@include titleH3(); margin-bottom: 20px;}
+            p{font-size: 24px; font-weight: 500; color: $white; text-align: center;}
+            }
+        }
+    }
+.add::after{
+    content: ''; position: absolute; left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient( to top, rgba(0,0,0,0.6), transparent);
+}
+
+
+@media screen and (max-width:960px) {
+    .add{
+        .box{
+            width: 100%;
+            .add_text_f{@include titleH3(24px);}
+            .add_text{
+                h3{@include titleH3(24px); margin-bottom: 10px;}
+                p{font-size: 16px;}
+            }
+        }
+    }
+}
+@media screen and (max-width:480px) {
+    .add{
+        .box{
+            .add_text_f{@include titleH3(22px);}
+            .add_text{
+                h3{font-size: 20px;}
+                p{font-size: 12px;}
+            }
+        }
+    }
+}

@@ -1,0 +1,80 @@
+//mainTitle
+@mixin mainTitle($fs:70px, $fw:300 ,$lh:105px){
+    font-size: $fs; font-weight: $fw; line-height: $lh; color: $white;
+}
+//mainTxt
+@mixin mainTxt(){
+    font-size: 24px; line-height: 32px; font-weight: 300; color: $white;
+}
+
+//h2Title
+@mixin titleH2($c:$titleColor){
+    width: 100%; padding: 20px; text-transform: uppercase; text-align: center;
+    font-family: $baseFont; font-size: 45px; font-weight: 700; color: $c;
+}
+//h3Title
+@mixin titleH3($fs:32px){
+    font-size: $fs; font-weight: 700; color: $white; text-align: center;
+}
+//h4Title
+@mixin titleH4(){
+    font-size: 24px; font-weight: 700; color: $white;
+}
+//gnbText
+@mixin gnbText($fs:18px){
+    font-size: $fs; font-weight: 500; color: $white;
+}
+//subMenuText
+@mixin subMenuText($o:0.7){
+    font-size: 16px; font-weight: 400; color: $white; opacity: $o;
+}
+
+//bodyText
+@mixin bodyText($fs: 16px, $fw: 400, $c: $white){
+    font-size: $fs; font-weight: $fw; color: $c;
+}
+
+//viewBtn
+@mixin viewBtn($o:0 ,$w:100px, $h:40px){
+    width: $w; height: $h;
+    border: 1px solid $white; background-color: transparent; 
+    @include bodyText(14px);
+    transition: 0.5s; opacity: $o;
+    &:hover{background-color: $white; color: $mainColor;}
+}
+
+//news_Tab_Btn
+@mixin newsBtnAll($bg:rgba(255,255,255,0.2), $hb:transparent){
+    width: 70px; height: 50px; border-radius: 5px; border: 1px solid  $bg; background-color: $hb;
+}
+@mixin newsBtn($bg:rgba(255,255,255,0.2), $hb:transparent){
+    width: 90px; height: 50px; border-radius: 5px; border: 1px solid $bg; background-color: $hb;
+}
+
+//news_Tab_Btn_title
+@mixin newsBtnTitle($c:$white){
+    font-weight: 700; font-size: 16px; line-height: 50px; text-align: center; color: $c;
+}
+
+//newsText
+@mixin newsText($fs:22px, $fw:700){font-size: $fs; font-weight: $fw; color: $white; margin-bottom: 10px;}
+
+//newsMoreBtn
+@mixin MoreBtn($bc:$white, $bg:transparent){
+    width: 100%; height: 50px; border-radius: 5px; border: 1px solid $bc; background-color: $bg;
+}
+
+//serviceBtn
+@mixin serviceBtn($w: 690px){
+    width: $w; height: 60px;
+    border: 1px solid $mainColor; background-color: $white;
+    text-align: left; line-height: 60px; @include bodyText(16px, 700, $titleColor);
+}
+
+
+//mobile / tablet
+
+//mText
+@mixin mText($fs:24px, $fw:400){
+    font-size: $fs; font-weight: $fw;
+}

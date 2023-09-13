@@ -1,0 +1,86 @@
+@import "../common/var";
+@import "../common/mixin";
+
+.main{
+    width: 100%; height: 100%;
+    .swiper{
+        position: relative;
+        width: 100%; height: 100%;
+        .swiper-wrapper{
+            width: 100%; height: 100%;
+            .main_01{
+                background-image: url(../images/main/main01.png);
+                background-repeat: no-repeat; background-size: cover; background-position: center;
+                position: relative;
+                .info{
+                    position: absolute; right: 10%; top: 30%;
+                    display: flex; flex-direction: column; align-items: center;
+                    h2{@include mainTitle();}
+                }
+            }
+            .main_02{
+                background-image: url(../images/main/main02.png);
+                background-repeat: no-repeat; background-size: cover; background-position: center;
+                position: relative;
+                .info{
+                    position: absolute; left: 5%; top: 30%;
+                    h2{@include mainTitle();}
+                    .main_txt{margin: 10px 0 0 10px; @include mainTxt();}
+                    .view_btn{margin: 24px auto 0;}
+                }
+            }
+            .main_03{
+                background-image: url(../images/main/main03.png);
+                background-repeat: no-repeat; background-size: cover; background-position: center;
+                position: relative;
+                .info{
+                    position: absolute; right: 10%; top: 35%;
+                    display: flex; flex-direction: column; align-items: center;
+                    h2{margin-top: 20px; @include mainTitle(70px,400);} 
+                    .main_txt{@include mainTxt();}
+                }
+            }
+            .view_btn{margin-top: 30px; @include viewBtn(1);}
+
+        }
+        .swiper-pagination-bullet:nth-child(1){
+            width: 150px; height: 2px; border-radius: 5px 0 0 5px;
+            margin: 0; background: $white;
+          }
+          .swiper-pagination-bullet:nth-child(2){
+            width: 150px; height: 2px; border-radius: 0;
+            margin: 0; background: $white;
+          }
+          .swiper-pagination-bullet:nth-child(3){
+            width: 150px; height: 2px; border-radius: 0 5px 5px 0;
+            margin: 0; background: $white;
+          }
+    }
+}
+@media screen and (max-width:768px) {
+    .main{
+        .swiper{
+            .swiper-pagination-bullet:nth-child(n+1){width: 100px;}
+            .swiper-wrapper{
+                .main_01{
+                    .info{
+                        h2{@include mainTitle(50px, 300, 75px);}
+                    }
+                }
+                .main_02{
+                    .info{
+                        h2{@include mainTitle(50px, 300, 75px);}
+                        .main_txt{display: none;}
+                    }
+                }
+                .main_03{
+                    .info{
+                        h2{@include mainTitle(50px, 400, 75px);}
+                        .main_txt{display: none;}
+                    }
+                }
+                .view_btn{margin-top: 10px;}
+            }
+        }
+    }
+}
