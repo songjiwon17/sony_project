@@ -32,14 +32,17 @@
     <img src="https://img.shields.io/badge/Figma-F24E1E?style=flat-square&logo=Figma&logoColor=black"/></a>
 </p>
 
+- SCSS를 활용하여 코드 작성
 - 사용자가 원하는 컨텐츠를 클릭할 수 있게끔 구성하고 hover효과 적용
 - 메인 페이지에서 스크롤 시 top menu가 fix되며 위치에 따라 상태 변경
-  
+- 그 외 동적인 디자인적인 요소 적용
 
+<br>
 
 ## ✨기술 스택
 <p>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=HTML5&logoColor=white">
+  <img src="https://img.shields.io/badge/SCSS-CC6699?style=flat-square&logo=Sass&logoColor=white"/>
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=CSS3&logoColor=white">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black">
   <img src="https://img.shields.io/badge/jquery-0769AD?style=flat-square&logo=jquery&logoColor=white">
